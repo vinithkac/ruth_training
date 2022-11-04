@@ -16,9 +16,9 @@ _MODELS = {
 DEFAULT_MODELS_DIR = os.path.join(os.path.expanduser('~'), '.cache', 'ruth', 'models')
 MODELS_DIR = os.environ.get('RUTH_MODELS_DIR', DEFAULT_MODELS_DIR)
 
+
 def _models() -> list[str]:
     return list(_MODELS.keys())
-
 
 
 def download_models(model_name: str):
@@ -44,11 +44,12 @@ def download_models(model_name: str):
     if os.path.exists(model_path):
         print("Done.")
     else:
-        url =
+        url = _MODELS[model_name]
         print(f'Downloading {model_name} from {url}...')
         request.urlretrieve(url, model_path, show_progress)
         print('Done.')
 
 
-def load_model():
-
+def load_model(model_name: str):
+    print("loaded")
+    pass
